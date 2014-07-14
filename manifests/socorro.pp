@@ -198,7 +198,7 @@ class webapp::socorro {
       require => File['/etc/socorro'];
 
     'socorro_nginx.conf':
-      ensure  => file;
+      ensure  => file,
       path    => '/etc/nginx/conf.d/socorro_nginx.conf',
       source  => '/var/cache/puppet/files/etc_nginx_conf.d/socorro_nginx.conf',
       owner   => 'nginx',
