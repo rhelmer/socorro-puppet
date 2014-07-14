@@ -5,7 +5,6 @@ Install:
   sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
   yum install puppet
   sudo mkdir -p /var/cache/puppet
-  sudo cp -rp ./manifests ./files ./templates /var/cache/puppet
   sudo puppet resource package hiera ensure=installed
   sudo puppet resource package hiera-puppet ensure=installed
   sudo cp hiera.yaml /etc/puppet
@@ -19,5 +18,5 @@ Configure:
 
 Run:
 ```
-  sudo puppet apply /var/cache/puppet/manifests/init.pp
+  sudo puppet apply manifests/init.pp
 ```
