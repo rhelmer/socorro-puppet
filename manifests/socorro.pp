@@ -124,8 +124,8 @@ class webapp::socorro {
     'common_elasticsearch.ini':
       ensure  => file,
       path    => '/etc/socorro/common_elasticsearch.ini',
-      content =>
-        template('/var/cache/puppet/templates/common_elasticsearch.ini'),
+      content => template(
+        '/var/cache/puppet/templates/common_elasticsearch.ini.erb'),
       require => File['/etc/socorro'];
 
     'common_fs.ini':
