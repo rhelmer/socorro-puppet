@@ -121,6 +121,82 @@ class webapp::socorro {
       content => template('/var/cache/puppet/templates/crontabber.ini.erb'),
       require => File['/etc/socorro'];
 
+    'common_elasticsearch.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_elasticsearch.ini',
+      content =>
+        template('/var/cache/puppet/templates/common_elasticsearch.ini'),
+      require => File['/etc/socorro'];
+
+    'common_fs.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_fs.ini',
+      content => template('/var/cache/puppet/templates/common_fs.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'common_logging.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_logging.ini',
+      content =>
+        template('/var/cache/puppet/templates/common_logging.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'common_postgresql.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_postgresql.ini',
+      content =>
+        template('/var/cache/puppet/templates/common_postgresql.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'common_rabbitmq.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_rabbitmq.ini',
+      content =>
+        template('/var/cache/puppet/templates/common_rabbitmq.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'common_redactor.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_redactor.ini',
+      content =>
+        template('/var/cache/puppet/templates/common_redactor.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'crashmover_secrets.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_secrets.ini',
+      content =>
+        template('/var/cache/puppet/templates/common_secrets.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'cron_submitter_secrets.ini':
+      ensure  => file,
+      path    => '/etc/socorro/common_secrets.ini',
+      content =>
+        template('/var/cache/puppet/templates/common_secrets.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'crontabber_secrets.ini':
+      ensure  => file,
+      path    => '/etc/socorro/crontabber_secrets.ini',
+      content =>
+        template('/var/cache/puppet/templates/crontabber_secrets.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'middleware_secrets.ini':
+      ensure  => file,
+      path    => '/etc/socorro/middleware_secrets.ini',
+      content =>
+        template('/var/cache/puppet/templates/middleware_secrets.ini.erb'),
+      require => File['/etc/socorro'];
+
+    'processor_secrets.ini':
+      ensure  => file,
+      path    => '/etc/socorro/processor_secrets.ini',
+      content =>
+        template('/var/cache/puppet/templates/processor_secrets.ini.erb'),
+      require => File['/etc/socorro'];
+
     'socorro_nginx.conf':
       ensure  => file;
       path    => '/etc/nginx/conf.d/socorro_nginx.conf',

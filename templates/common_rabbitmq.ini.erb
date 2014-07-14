@@ -1,0 +1,38 @@
+# delays in seconds between retries
+#backoff_delays='10, 30, 60, 120, 300'
+
+# toggle for using or ignoring the throttling flag
+filter_on_legacy_processing='True'
+
+# the hostname of the RabbitMQ server
+host=localhost
+
+# the port for the RabbitMQ server
+#port=5672
+
+# the name of priority crash queue name within RabbitMQ
+#priority_queue_name=socorro.priority
+
+# the class responsible for connecting to RabbitMQ
+#rabbitmq_class='socorro.external.rabbitmq.connection_context.ConnectionContextPooled'
+
+# a classname for the type of wrapper for RabbitMQ connections
+#rabbitmq_connection_wrapper_class='socorro.external.rabbitmq.connection_context.Connection'
+
+# the name of reprocessing crash queue name within RabbitMQ
+#reprocessing_queue_name=socorro.reprocessing
+
+# the name of the queue to recieve crashes
+routing_key=socorro.normal
+
+# the name of standard crash queue name within RabbitMQ
+#standard_queue_name=socorro.normal
+
+# a class that will manage transactions
+#transaction_executor_class='socorro.database.transaction_executor.TransactionExecutorWithInfiniteBackoff'
+
+# the name of the RabbitMQ virtual host
+#virtual_host=socorro-prod
+
+# seconds between log during retries
+#wait_log_interval=10

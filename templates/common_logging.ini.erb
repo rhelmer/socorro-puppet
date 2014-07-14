@@ -1,0 +1,21 @@
+    # logging level for the logging to stderr (10 - DEBUG, 20 - INFO, 30 - WARNING, 40 - ERROR, 50 - CRITICAL)
+    #stderr_error_logging_level=10
+
+    # python logging system format for logging to stderr
+    stderr_line_format_string={asctime} {levelname} {message}
+
+    # logging level for the log file (10 - DEBUG, 20 - INFO, 30 - WARNING, 40 - ERROR, 50 - CRITICAL)
+    #syslog_error_logging_level=40
+
+    # syslog facility string ("user", "local0", etc)
+    syslog_facility_string=local2
+
+    # syslog hostname
+    #syslog_host=localhost
+
+    # python logging system format for syslog entries
+    syslog_line_format_string={app_name} (pid {process}): {asctime} {levelname} - {threadName} - {message}
+
+    # syslog port
+    #syslog_port=514
+

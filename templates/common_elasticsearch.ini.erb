@@ -1,0 +1,27 @@
+# delays in seconds between retries
+#backoff_delays='10, 30, 60, 120, 300'
+
+# a type to insert crashes in elasticsearch
+#elasticsearch_doctype=crash_reports
+
+# an index to insert crashes in elasticsearch (use datetime's strftime format to have daily, weekly or monthly indexes)
+#elasticsearch_index=socorro%Y%W
+
+# the mapping of crash reports to insert
+#elasticsearch_index_settings=
+
+# the urls to the elasticsearch instances (leave blank to disable)
+elasticsearch_urls=http://socorro-es.webapp.phx1.mozilla.com:9200
+
+# how long to wait in seconds for confirmation of a submission
+timeout=2
+
+# a class that will manage transactions
+#transaction_executor_class='socorro.database.transaction_executor.TransactionExecutorWithLimitedBackoff'
+
+# seconds between log during retries
+#wait_log_interval=10
+
+elasticSearchHostname=localhost
+
+elasticsearch_index_settings=/data/socorro/application/socorro/external/elasticsearch/socorro_index_settings.json
