@@ -25,6 +25,11 @@ class webapp::socorro {
       ensure  => running,
       enable  => true,
       require => Package['elasticsearch'];
+
+    'supervisord':
+      ensure  => running,
+      enable  => true,
+      require => Package['supervisor'];
   }
 
   yumrepo {
@@ -39,6 +44,11 @@ class webapp::socorro {
       baseurl  => 'http://packages.elasticsearch.org/elasticsearch/0.90/centos',
       enabled  => 1,
       gpgcheck => 0;
+
+    'supervisor':
+      baseurl => 'http://repos.fedorapeople.org/repos/rmarko/supervisor/epel-6/noarch/',
+      enabled  => 1,
+      gpgcheck => 0,
   }
 
   package {
@@ -56,7 +66,6 @@ class webapp::socorro {
   package {
     [
       'python-virtualenv',
-      'supervisor',
       'rabbitmq-server',
       'python-pip',
       'nodejs-less',
@@ -69,6 +78,12 @@ class webapp::socorro {
     'elasticsearch':
       ensure  => latest,
       require => [ Yumrepo['elasticsearch'], Package['java-1.7.0-openjdk'] ]
+  }
+
+  package {
+    'supervisor':
+      ensure  => latest,
+      require => [ Yumrepo['supervisor'] ]
   }
 
   file {
@@ -123,6 +138,12 @@ class webapp::socorro {
       path    => '/etc/socorro/local.py',
       content => template('/var/cache/puppet/templates/local.py.erb'),
       require => File['/etc/socorro'],
+      ensure  => file;
+
+    'supervisord.conf':
+      path    => '/etc/supervisord.conf',
+      source  => '/var/cache/puppet/files/etc/supervisord.conf',
+      owner   => 'root',
       ensure  => file;
   }
 
