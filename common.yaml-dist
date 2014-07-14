@@ -1,0 +1,8 @@
+database_username: socorro
+database_password: TOP_SEKRIT
+database_hostname: localhost
+middleware_url:    http://localhost:8002
+crash_stats_url:   http://crash-stats.example.com
+crash_stats_host:  crash-stats.example.com
+postgresql_url:    postgresql://socorro:TOP_SEKRIT@localhost/breakpad
+default_product:   WaterWolf
