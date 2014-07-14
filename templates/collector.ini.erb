@@ -3,8 +3,6 @@
 
 [resource]
 
-    #+include ./common_resource.ini
-
     [[fs]]
 
         +include ./common_fs.ini
@@ -88,12 +86,12 @@
     #redactor_class='socorro.external.crashstorage_base.Redactor'
 
     # a comma delimited list of storage classes
-    #storage_classes='socorro.external.fs.crashstorage.FSLegacyRadixTreeStorage, socorro.external.rabbitmq.crashstorage.RabbitMQCrashStorage'
+    storage_classes='socorro.external.fs.crashstorage.FSLegacyRadixTreeStorage, socorro.external.rabbitmq.crashstorage.RabbitMQCrashStorage'
 
     [[storage0]]
 
         # None
-        #crashstorage_class='socorro.external.fs.crashstorage.FSLegacyRadixTreeStorage'
+        crashstorage_class='socorro.external.fs.crashstorage.FSLegacyRadixTreeStorage'
 
         # the default dump field
         # see "resource.fs.dump_field" for the default or override it here
@@ -138,7 +136,7 @@
         #backoff_delays='10, 30, 60, 120, 300'
 
         # None
-        #crashstorage_class='socorro.external.rabbitmq.crashstorage.RabbitMQCrashStorage'
+        crashstorage_class='socorro.external.rabbitmq.crashstorage.RabbitMQCrashStorage'
 
         # toggle for using or ignoring the throttling flag
         # see "resource.rabbitmq.filter_on_legacy_processing" for the default or override it here
