@@ -164,16 +164,16 @@ class webapp::socorro {
 
     'crashmover_secrets.ini':
       ensure  => file,
-      path    => '/etc/socorro/common_secrets.ini',
+      path    => '/etc/socorro/crashmover_secrets.ini',
       content =>
-        template('/var/cache/puppet/templates/common_secrets.ini.erb'),
+        template('/var/cache/puppet/templates/crashmover_secrets.ini.erb'),
       require => File['/etc/socorro'];
 
     'cron_submitter_secrets.ini':
       ensure  => file,
-      path    => '/etc/socorro/common_secrets.ini',
-      content =>
-        template('/var/cache/puppet/templates/common_secrets.ini.erb'),
+      path    => '/etc/socorro/cron_submitter_secrets.ini',
+      content => template(
+        '/var/cache/puppet/templates/cron_submitter_secrets.ini.erb'),
       require => File['/etc/socorro'];
 
     'crontabber_secrets.ini':
