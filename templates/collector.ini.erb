@@ -20,19 +20,12 @@
     [[redactor]]
 
         +include ./common_redactor.ini
-[secrets]
 
-    +include ./collector_secrets.ini
+[secrets]
 
     [[rabbitmq]]
 
-        #+include ./common_rabbitmq.ini
-
-        # the user's RabbitMQ password
-        #rabbitmq_password=guest
-
-        # the name of the user within the RabbitMQ instance
-        #rabbitmq_user=guest
+        +include ./common_rabbitmq.ini
 
 [collector]
 
