@@ -86,48 +86,44 @@
     #redactor_class='socorro.external.crashstorage_base.Redactor'
 
     # a comma delimited list of storage classes
-    storage_classes='socorro.external.fs.crashstorage.FSLegacyRadixTreeStorage, socorro.external.rabbitmq.crashstorage.RabbitMQCrashStorage'
+    storage_classes='socorro.external.ceph.crashstorage.BotoS3CrashStorage, socorro.external.rabbitmq.crashstorage.RabbitMQCrashStorage'
 
     [[storage0]]
 
+        # AWS_ACCESS_KEY_ID
+        access_key='<%= aws_access_key %>'
+
+        # delays in seconds between retries
+        #backoff_delays='10, 30, 60, 120, 300'
+
+        # How to organize the buckets (default: daily)
+        #buckets=daily
+
         # None
-        crashstorage_class='socorro.external.fs.crashstorage.FSLegacyRadixTreeStorage'
-
-        # the default dump field
-        # see "resource.fs.dump_field" for the default or override it here
-        #dump_field=upload_file_minidump
-
-        # the suffix used to identify a dump file
-        # see "resource.fs.dump_file_suffix" for the default or override it here
-        #dump_file_suffix=.dump
+        crashstorage_class='socorro.external.ceph.crashstorage.BotoS3CrashStorage'
 
         # a list of keys not allowed in a redacted processed crash
         # see "resource.redactor.forbidden_keys" for the default or override it here
-        #forbidden_keys='url, email, user_id, exploitability'
+        #forbidden_keys='url, email, user_id, exploitability,json_dump.sensitive,upload_file_minidump_flash1.json_dump.sensitive,upload_file_minidump_flash2.json_dump.sensitive,upload_file_minidump_browser.json_dump.sensitive'
 
-        # a path to a file system
-        # see "resource.fs.fs_root" for the default or override it here
-        #fs_root='./crashes'
+        # The hostname of the S3 crash storage to submit to
+        host=localhost
 
-        # the suffix used to identify a json file
-        # see "resource.fs.json_file_suffix" for the default or override it here
-        #json_file_suffix=.json
-
-        # the suffix used to identify a gzipped json file
-        # see "resource.fs.jsonz_file_suffix" for the default or override it here
-        #jsonz_file_suffix=.jsonz
-
-        # the directory base name to use for the named radix tree storage
-        # see "resource.fs.name_branch_base" for the default or override it here
-        #name_branch_base=name
+        # The hostname of the S3 crash storage to submit to
+        port=38080
 
         # the name of the class that implements a 'redact' method
         # see "resource.redactor.redactor_class" for the default or override it here
         #redactor_class='socorro.external.crashstorage_base.Redactor'
 
-        # umask to use for new files
-        # see "resource.fs.umask" for the default or override it here
-        #umask=18
+        # AWS_SECRET_ACCESS_KEY
+        secret_access_key='<%= aws_secret_access_key %>'
+
+        # a class that will manage transactions
+        #transaction_executor_class='socorro.database.transaction_executor.TransactionExecutorWithLimitedBackoff'
+
+        # seconds between log during retries
+        #wait_log_interval=10
 
     [[storage1]]
 
