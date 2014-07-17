@@ -14,7 +14,7 @@ Install:
 
 Configure:
 ```
-  sudo vi /etc/puppet/common.yaml
+  sudo vi /var/lib/hiera/common.yaml
 ```
 
 Run:
